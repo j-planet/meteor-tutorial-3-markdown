@@ -16,7 +16,23 @@ Meteor.methods({
     
     'bins.remove': function (bin) {
         // validation??
+
         return Bins.remove(bin);
+    },
+
+    'bins.update_content': function (bin, newContent) {
+        // again, validation??
+
+        return Bins.update(
+            bin._id,
+            { $set: { content: newContent} }
+        );
+    },
+
+    'bins.share': function (bin, email) {
+        // again, validation??
+
+        return Bins.update(bin._id, { $push: {sharedWidth: email}});
     }
 
 });

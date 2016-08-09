@@ -5,17 +5,26 @@ import 'codemirror/mode/markdown/markdown';
 
 class BinsEditor extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
         console.log('BinsEditor willMount.');
     }
 
+    onEditorChange(content) {
+        Meteor.call('bins.update_content', this.props.bin, content);
+    }
+
     render() {
+        if (!this.props.bin) {
+            return <div>Loading...</div>;
+        }
+
         return (
-            <div>
+            <div className="col-xs-8">
+                <h5>Input</h5>
+                <CodeMirror
+                    value={this.props.bin.content}
+                    onChange={this.onEditorChange.bind(this)}
+                    options={{ mode: 'markdown', lineNumbers: true}} />
             </div>
         );
     }

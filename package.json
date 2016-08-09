@@ -1,10 +1,11 @@
 {
-  "name": "markdown",
+  "name": "meteor-tutorial-3-markdown",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
+    "markdown": "^0.5.0",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.3.0",
     "react-addons-pure-render-mixin": "^15.3.0",

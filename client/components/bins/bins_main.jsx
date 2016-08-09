@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
+
 import { Bins } from '../../../imports/collections/bins';
 import BinsEditor from './bins_editor';
+import BinsViewer from './bins_viewer';
+import BinsShare from './bins_share';
 
 
 class BinsMain extends Component {
@@ -23,6 +26,8 @@ class BinsMain extends Component {
                 <h3>Bins Main for Bin {this.props.params.binId}</h3>
 
                 <BinsEditor bin={bin} />
+                <BinsViewer bin={bin} />
+                <BinsShare bin={bin} />
             </div>
         );
     }
@@ -35,6 +40,7 @@ export default createContainer((props) => {
 
     // Subscribe again, in case the user doesn't go to the root route first.
     Meteor.subscribe('bins');
+    Meteor.subscribe('sharedBins');
 
     return { bin: Bins.findOne(binId) };
 }, BinsMain);
