@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './header';
+import BinsList from './bins/bins_list';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         return (
             <div>
                 <Header />
+                <BinsList />
             </div>
         );
     }
