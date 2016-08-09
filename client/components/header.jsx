@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
+import Accounts from './accounts';
 
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
+
+        this.onBinClick = this.onBinClick.bind(this);
     }
 
     componentWillMount() {
         console.log('Header willMount.');
+    }
+
+    onBinClick(event) {
+        event.preventDefault();
+
+        Meteor.call('bins.insert');
     }
 
     render() {
@@ -21,10 +30,10 @@ class Header extends Component {
 
                 <ul className="nav navbar-nav">
                     <li>
-                        <a>Sign up</a>
+                        <Accounts />
                     </li>
                     <li>
-                        <a>Create Bin</a>
+                        <a href="#" onClick={this.onBinClick}>Create Bin</a>
                     </li>
                 </ul>
 
