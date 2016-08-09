@@ -11,6 +11,11 @@ Meteor.methods({
             sharedWith: [],
             ownerId: this.userId   // if logged in, this.userId is available right away!
         });
+    },
+    
+    'bins.remove': function (bin) {
+        // validation??
+        return Bins.remove(bin);
     }
 
 });
