@@ -19,7 +19,7 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                <BinsList />
+                {this.props.children}
             </div>
         );
     }

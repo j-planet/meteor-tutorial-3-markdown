@@ -4,6 +4,7 @@ import { Mongo } from 'meteor/mongo';
 Meteor.methods({
 
     // can NOT use a fat arrow notation, which binds "this" to this function, instead of at runtime!!
+    // returns: bin ID
     'bins.insert': function() {
         return Bins.insert({
             createdAt: new Date(),
