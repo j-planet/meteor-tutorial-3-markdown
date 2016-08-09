@@ -36,8 +36,13 @@ class Header extends Component {
                     <li>
                         <Accounts />
                     </li>
+
                     <li>
                         <a href="#" onClick={this.onBinClick}>Create Bin</a>
+                    </li>
+
+                    <li>
+                        <Link to="profile">Profile</Link>
                     </li>
                 </ul>
 
